@@ -88,12 +88,3 @@ func JsnToXml(row_jsn json.Number) {
 	fch.Info[j].InformationPart = InformationPart.InformationPart(jsn, jsn[0].EvtCode, blocks)
 
 }
-
-func Contains(a []string, v string) bool {
-	for _, i := range a {
-		if i == v {
-			return true
-		}
-	}
-	return false
-}
