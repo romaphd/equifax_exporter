@@ -5,6 +5,9 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"fmt"
+	"go_pro/AddPart"
+
+	"go_pro/BasePart"
 	"go_pro/InformationPart"
 	"go_pro/TitlePart"
 	"go_pro/model_jsn"
@@ -85,6 +88,8 @@ func JsnToXml(row_jsn json.Number) {
 	}
 
 	fch.Info[j].TitlePart = TitlePart.TitlePart(jsn)
+	fch.Info[j].BasePart = BasePart.BasePart(jsn, jsn[0].EvtCode, blocks)
+	fch.Info[j].AddPart = AddPart.AddPart(jsn, jsn[0].EvtCode, blocks)
 	fch.Info[j].InformationPart = InformationPart.InformationPart(jsn, jsn[0].EvtCode, blocks)
 
 }

@@ -3,6 +3,7 @@ package InformationPart
 import (
 	"go_pro/model_jsn"
 	"go_pro/model_xml"
+	"reflect"
 	"strconv"
 )
 
@@ -31,7 +32,11 @@ func InformationPart(jsn model_jsn.Model_jsn, event string, blocks []string) *mo
 		xml.Failure.Reason = jsn[0].B57[0].ReasonRjctCode
 	}
 
-	return &xml
+	if reflect.DeepEqual(xml, model_xml.InformationPart{}) {
+		return nil
+	} else {
+		return &xml
+	}
 }
 
 func contains(a []string, v string) bool {
